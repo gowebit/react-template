@@ -1,7 +1,12 @@
-//Globais
-.colorful-text {
-    color: lightblue;
+/* Teste de comentario para ser removido na minificacao */
+.forceDisplay {
+    display: inline !important;
 }
 
-//Componentes
-@import './components/ComponenteTeste';
+/* autoprefixer test */
+.autoprefixer-test {
+    display: flex;
+    transition: all .5s;
+    user-select: none;
+    background: linear-gradient(to bottom, white, black);
+}

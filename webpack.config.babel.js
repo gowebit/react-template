@@ -1,11 +1,17 @@
+import webpack from 'webpack';
+import autoprefixer from 'autoprefixer';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import ImageminPlugin from 'imagemin-webpack-plugin';
 
 module.exports = {
-    entry: __dirname + '/app/index.js',
-
     context: __dirname + '/app',
+    entry: __dirname + '/app/js/main.js',
+    
+    output: {
+        path: __dirname + '/build',
+        filename: 'bundle.js'
+    },
 
     module: {
         rules: [
@@ -23,16 +29,31 @@ module.exports = {
                 //A ordem de execucao dos loaders se segue da direita para a esquerda (ou baixo para cima)
                 use: [
                     'style-loader',
-                    'css-loader',
-                    'sass-loader'
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            minimize: true
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: function () {
+                                return [autoprefixer];
+                            }
+                        }
+                    },
+                    'sass-loader',
+                ]
+            },
+            //Verifica por alteracoes nos arquivos HTML e caso ocorra, recarrega o browser
+            {
+                test: /\.html$/,
+                use: [
+                    'raw-loader'
                 ]
             }
         ]
-    },
-
-    output: {
-        path: __dirname + '/build',
-        filename: 'bundle.js'
     },
     
     plugins: [
@@ -42,6 +63,12 @@ module.exports = {
             filename: 'index.html',
             inject: 'body'
         }),
+
+        //Cria uma constante global em tempo de compilacao para os arquivos JS lerem a NODE_ENV
+        new webpack.DefinePlugin({
+            NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+        }),
+
         //Copia as imagens
         new CopyWebpackPlugin([{
             from: 'img/',
@@ -49,7 +76,7 @@ module.exports = {
         }]),
         //Minifica as imagens (precisa sempre vir depois de plugins que adicionam imagens)
         new ImageminPlugin({
-            disable: process.env.NODE_ENV !== 'PROD', //Desabilita caso a build nao seja de Prod
+            disable: process.env.NODE_ENV !== 'PROD', //Desabilita caso o build nao seja de PROD
             test: /\.(jpe?g|png|gif|bmp|svg)$/i
         })
     ],

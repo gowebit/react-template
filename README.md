@@ -1,5 +1,5 @@
-# React Template
-Projeto Template de React.
+# Base Webpack ES6
+Projeto Base de Webpack.
 <br />
 Suporte para ES6 com Babel.
 
@@ -8,7 +8,7 @@ A pasta "app" é a pasta de desenvolvimento.
 <br />
 Uma vez o webpack tendo feito o build, o resultado é gerado na pasta "build".
 
-# NPM Scripts
+# Scripts NPM
 - Para rodar o build de desenvolvimento e em seguida, o servidor do projeto:
 ```sh
 $ npm run start
