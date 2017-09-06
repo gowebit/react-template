@@ -1,8 +1,4 @@
 {
-    "plugins": [
-        "react"
-    ],
-
     "env": {
         "es6": true,
         "browser": true,
@@ -10,9 +6,6 @@
     },
 
     "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
         "sourceType": "module"
     },
 
@@ -83,16 +76,11 @@
         "max-statements": ["off", 10],
         "new-cap": "warn",
         "new-parens": "warn",
-        "quotes": ["warn", "single"],
         "quote-props": "off",
         "radix": "off",
         "semi": "warn",
         "use-isnan": "warn",
         "valid-typeof": "off",
-        "wrap-regex": "off",
-
-        //Rules "eslint-plugin-react"
-        "react/jsx-uses-react": "warn",
-        "react/jsx-uses-vars": "warn"
+        "wrap-regex": "off"
     }
 }
