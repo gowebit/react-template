@@ -1,7 +1,5 @@
-# Base Webpack ES6
-Projeto Base de Webpack.
-<br />
-Suporte para ES6 com Babel.
+# Base Webpack
+Projeto Base de Webpack com suporte para ES6 (Babel), PUG e SASS.
 
 # Uso
 A pasta "app" é a pasta de desenvolvimento.
