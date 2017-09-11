@@ -1,7 +1,7 @@
 {
   "name": "webpack-base",
   "version": "2.0.0",
-  "description": "Base Webpack para ES6.",
+  "description": "Base Webpack.",
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=PROD webpack -p",
