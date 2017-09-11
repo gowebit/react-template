@@ -1,9 +1,10 @@
 # Change Log
 Todas as mudanças significativas deste projeto serão documentadas neste arquivo.
 
-## [Unreleased]
+## [2.0.0] - 2017-09-11
 ### Added
 - Suporte para PUG.
+- Minifica o HTML no build de Prod.
 
 ## [1.0.0] - 2017-09-06
 ### Added

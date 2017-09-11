@@ -4,6 +4,8 @@ import HTMLWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import ImageminPlugin from 'imagemin-webpack-plugin';
 
+const isProd = process.env.NODE_ENV === 'PROD';
+
 module.exports = {
     context: __dirname + '/app',
     entry: __dirname + '/app/js/main.js',
@@ -32,7 +34,7 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            minimize: true
+                            minimize: isProd
                         }
                     },
                     {
@@ -48,19 +50,24 @@ module.exports = {
             },
             //Verifica por alteracoes nos arquivos HTML e caso ocorra, recarrega o browser
             {
-                test: /\.html$/,
+                test: /\.pug$/,
                 use: [
-                    'raw-loader'
+                    'raw-loader',
+                    'pug-html-loader'
                 ]
             }
         ]
     },
     
     plugins: [
-        //Injeta o script de import do "bundle.js" no final da tag "<body>" do "index.html"
+        //Cria o "index.html" (default filename) e injeta o script de import do "bundle.js" no final da tag "<body>" do "index.html"
         new HTMLWebpackPlugin({
-            template: __dirname + '/app/index.html',
-            filename: 'index.html',
+            template: __dirname + '/app/pug/index.pug',
+            minify: {
+                collapseWhitespace: isProd,
+                collapseInlineTagWhitespace: isProd,
+                removeComments: isProd
+            },
             inject: 'body'
         }),
 
@@ -76,7 +83,7 @@ module.exports = {
         }]),
         //Minifica as imagens (precisa sempre vir depois de plugins que adicionam imagens)
         new ImageminPlugin({
-            disable: process.env.NODE_ENV !== 'PROD', //Desabilita caso o build nao seja de PROD
+            disable: !isProd,
             test: /\.(jpe?g|png|gif|bmp|svg)$/i
         })
     ],
