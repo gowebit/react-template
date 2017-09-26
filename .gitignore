@@ -60,5 +60,8 @@ typings/
 # MAC
 .DS_Store
 
+# Windows
+desktop.ini
+
 # Custom
 build/
