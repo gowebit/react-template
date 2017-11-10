@@ -1,6 +1,15 @@
 # Change Log
 Todas as mudanças significativas deste projeto serão documentadas neste arquivo.
 
+## [2.1.0] - 2017-11-10
+### Added
+- Pasta "build" agora é apagada antes de gerar um novo build.
+### Changed
+- Scripts NPM (ver "README.md").
+### Removed
+- Script NPM "server" (ver "README.md").
+- Script NPM "build-prod", pois tem a mesma função do "build".
+
 ## [2.0.0] - 2017-09-11
 ### Added
 - Suporte para PUG.
@@ -27,3 +36,4 @@ Todas as mudanças significativas deste projeto serão documentadas neste arquiv
 ## [0.1.0] - 2017-08-29
 ### Added
 - Geração de bundle do HTML, CSS e JS usando Webpack e Babel com suporte para React com JSX.
+- 

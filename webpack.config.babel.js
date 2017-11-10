@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import CleanWebpackPlugin from 'clean-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
@@ -14,6 +15,8 @@ module.exports = {
         path: __dirname + '/build',
         filename: 'bundle.js'
     },
+    
+    devtool: !isProd ? 'source-map' : '',
 
     module: {
         rules: [
@@ -60,6 +63,8 @@ module.exports = {
     },
     
     plugins: [
+        //Limpa a pasta "build"
+        new CleanWebpackPlugin('build'),
         //Cria o "index.html" (default filename) e injeta o script de import do "bundle.js" no final da tag "<body>" do "index.html"
         new HTMLWebpackPlugin({
             template: __dirname + '/app/pug/index.pug',
