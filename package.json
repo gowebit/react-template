@@ -1,6 +1,6 @@
 {
   "name": "webpack-base",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Base Webpack.",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gabrielnvg/webpack-base.git"
+    "url": "git+https://github.com/gowebit/webpack-base.git"
   },
   "keywords": [
     "webpack",
@@ -22,9 +22,9 @@
   "author": "Gowebit",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gabrielnvg/webpack-base/issues"
+    "url": "https://github.com/gowebit/webpack-base/issues"
   },
-  "homepage": "https://github.com/gabrielnvg/webpack-base#readme",
+  "homepage": "https://github.com/gowebit/webpack-base#readme",
   "devDependencies": {
     "autoprefixer": "^7.1.3",
     "babel-core": "^6.26.0",

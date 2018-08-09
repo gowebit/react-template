@@ -1,6 +1,10 @@
 # Change Log
 Todas as mudanças significativas deste projeto serão documentadas neste arquivo.
 
+## [2.1.1] - 2017-11-10
+### Fixed
+- URLs do projeto corrigidas no "package.json".
+
 ## [2.1.0] - 2017-11-10
 ### Added
 - Pasta "build" agora é apagada antes de gerar um novo build.
@@ -36,4 +40,3 @@ Todas as mudanças significativas deste projeto serão documentadas neste arquiv
 ## [0.1.0] - 2017-08-29
 ### Added
 - Geração de bundle do HTML, CSS e JS usando Webpack e Babel com suporte para React com JSX.
-- 
